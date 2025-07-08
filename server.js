@@ -77,6 +77,10 @@ app.get('/products/sort', (req, res)=>{
         result = products.sort((a, b)=> b[basis] - a[basis]);
     };
 
+    if (!results){
+        res.status(404).json({messgae:"sorted results don't exist"})
+    }
+    
     res.status(200).json({
         message: `sorted on the basis of ${basis} in ${order} order`,
         result: result
