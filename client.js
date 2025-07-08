@@ -82,6 +82,21 @@ async function onlyGetProducts(name, type, max_price){
     };
 };
 
+async function sortProducts(basis, order){
+    try{
+        const sorted = await axios.get(`${url}/products/sort`, {
+            params:{
+                basis:basis,
+                order:order
+            }
+        });
+
+        console.log(sorted.data)
+    }catch(err){
+        console.error("there was an error", err)
+    };
+}
+
 
 // function calls
 
@@ -94,4 +109,5 @@ async function onlyGetProducts(name, type, max_price){
 // deleteProduct(1)
 
 // intermediate requests
-onlyGetProducts("mouse", "wireless", 1000)
+// onlyGetProducts("mouse", "wireless", 1000)
+// sortProducts("rating", "descending");

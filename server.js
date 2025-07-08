@@ -63,7 +63,25 @@ app.get('/products/filter', (req, res)=>{
     });
 });
 
+// to sort products 
+app.get('/products/sort', (req, res)=>{
+    const {basis, order} = req.query;
+    if (!basis || !order){
+        res.status(401).json({message:"missing values to sort"})
+    };
 
+    let result = null;
+    if (order === "ascending"){
+        result = products.sort((a, b)=> a[basis] - b[basis]);
+    } else if (order === "descending"){
+        result = products.sort((a, b)=> b[basis] - a[basis]);
+    };
+
+    res.status(200).json({
+        message: `sorted on the basis of ${basis} in ${order} order`,
+        result: result
+    })
+});
 
 // to get just a single product
 app.get('/products/:id', (req, res)=>{
