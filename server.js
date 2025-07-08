@@ -44,7 +44,7 @@ app.get('/products/filter', (req, res)=>{
     const {name, type, max_price} = req.query;
 
     if(!name||!type||!max_price){
-        res.status(401).json({messgae:"missing fields"});
+        res.status(400).json({messgae:"missing fields"});
     };
 
     const result = products.filter(product =>
@@ -67,7 +67,7 @@ app.get('/products/filter', (req, res)=>{
 app.get('/products/sort', (req, res)=>{
     const {basis, order} = req.query;
     if (!basis || !order){
-        res.status(401).json({message:"missing values to sort"})
+        res.status(400).json({message:"missing values to sort"})
     };
 
     let result = null;
@@ -126,7 +126,7 @@ app.put('/products/:id', (req, res)=>{
     const idx = parseInt(req.params.id);    
     
     if (!idx){
-        res.status(401).json({message: "missing fields"});
+        res.status(400).json({message: "missing fields"});
     };
 
     const product = products.find(p=> p.id === idx);
@@ -138,7 +138,7 @@ app.put('/products/:id', (req, res)=>{
     const price = req.body.price;
 
     if (!price){
-        res.status(401).json({messgae:"missing feilds"})
+        res.status(400).json({messgae:"missing feilds"})
     };
 
     product.price = price;
@@ -157,7 +157,7 @@ app.delete('/products/:id', (req, res)=>{
     const idx = parseInt(req.params.id);
 
     if(!idx){
-        res.status(401).json({messgae:"missing fields"});
+        res.status(400).json({messgae:"missing fields"});
     }
 
     const product = products.find(p=> p.id === idx);
