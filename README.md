@@ -1,24 +1,27 @@
-# rest-api-client-server-demo
+# REST API Client-Server Demo
 
-## what this project is:
-- This project is a demo of a client and a server, interacting with the help of REST API. It is built using express and axios.
+## Project Overview
+This project is a simple demo of a client-server architecture built using **Node.js**, **Express**, and **Axios**. It demonstrates interaction via REST API, with the server exposing a set of CRUD operations on a list of tech products, simulating a minimal e-commerce backend.
 
-### features 
-- **separation of concerns**: the project is divided into a server file and a client file 
-- **rest api design principles**: it is made with a major focus on rest api design principles
-- **interaction and resource sharing**: the server contains a list of tech products that the client can do CRUD operations on, mimicing a small e-commerce interaction 
+## Features
+- **Separation of Concerns**: Cleanly divided into `server.js` and `client.js`.
+- **REST API Principles**: Designed around standard REST conventions.
+- **CRUD Operations**: Client can Create, Read, Update, and Delete products on the server.
+- **Data Simulation**: Server holds an in-memory product list as mock data.
+- **Dev Convenience**: Uses `nodemon` to auto-restart the server on changes.
 
-### tech used 
-- **node.js**: the project is built upon node.js v13.14.0
-- **express.js**: the server side uses express v4.17.1 
-- **axios**: the client side uses axios v1.10.0
-- **nodemon**: nodemon is also used in order to automatically update changes in server 
+## Tech Stack
+- **Node.js**: v13.14.0
+- **Express**: v4.17.1
+- **Axios**: v1.10.0
+- **Nodemon**: For development-time server restarts
 
-## why was the project made 
-- in order to learn REST API principles
-- and to learn CRUD operations with REST API
+## Purpose
+- Practice building and consuming REST APIs
+- Understand client-server interaction using HTTP methods
+- Gain hands-on experience with CRUD in a backend context
 
-## major limitations 
-- the project was built on windows 7, thereby limiting the use of latest versions of the used libraries and tools
-- due to syntax conflict between the used node version (which used CommonJS) and DOM files (that use ES6), in order to add working frontend, separation of concerns would have been needed to be compromised
-- it currently lacks a CLI input functionality, which i plan to rectify if the situation demands 
+## Limitations
+- Built on **Windows 7**, limiting support for modern tooling and modules
+- Frontend not added due to **CommonJS vs ES6 module** conflict; adding one would break separation of concerns
+- No CLI input interface yet — may be added later if required
